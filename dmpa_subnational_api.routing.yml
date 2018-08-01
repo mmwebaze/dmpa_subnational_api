@@ -1,0 +1,7 @@
+dmpa_subnational_api.get_subnational:
+  path: '/subnationals/{countryId}'
+  defaults:
+    _controller: 'Drupal\dmpa_subnational_api\Controller\SubnationalController::getSubnationalLevel'
+  methods: 'GET'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,7 @@
+subnational_api:
+  js:
+    js/subnational_api.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal

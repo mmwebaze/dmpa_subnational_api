@@ -1,0 +1,4 @@
+services:
+  dmpa_subnational_api.manager:
+    class: Drupal\dmpa_subnational_api\services\SubnationalManager
+    arguments: ['@database']
