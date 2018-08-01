@@ -27,7 +27,6 @@ function dmpa_subnational_api_help($route_name, RouteMatchInterface $route_match
  * Implements hook_form_alter().
  */
 function dmpa_subnational_api_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-drupal_set_message($form_id);
   if ($form_id == 'node_sdp_training_data_submission_form' || $form_id == 'node_sdp_training_data_submission_edit_form'){
     $form['#attached']['library'][] = 'dmpa_subnational_api/subnational_api';
   }
