@@ -3,6 +3,7 @@
   Drupal.behaviors.dmpa_subnational_api = {
     attach: function (context, settings) {
       var Subnational = Subnational || {};
+
       var countryDropdownId = '#edit-field-country';
 
       $(countryDropdownId).on('change', function () {
@@ -41,7 +42,7 @@
           var dr = $("[name='"+naam+"']").attr('id');
 
           if (dr !== undefined){
-            $('#'+dr).append($('<option value="foo">'+index+'</option>'));
+
             $.ajax({
               url: '/subnationals/' + countrySelected,
               type: 'GET',
