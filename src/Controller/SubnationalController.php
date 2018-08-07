@@ -15,17 +15,18 @@ class SubnationalController extends ControllerBase {
    */
   protected $subnationalManager;
 
-  public function __construct(SubnationalManagerInterface $subnationalManager){
+  public function __construct(SubnationalManagerInterface $subnationalManager) {
     $this->subnationalManager = $subnationalManager;
   }
+
   /**
    * api/subnationals/{countryId} end point
    */
-  public function getSubnationalLevel( Request $request ){
+  public function getSubnationalLevel(Request $request) {
     $country = $request->attributes->get('countryId');
     $subs = $this->subnationalManager->getSubnationals($country);
 
-    return new JsonResponse(  $subs );
+    return new JsonResponse($subs);
   }
 
   /**
