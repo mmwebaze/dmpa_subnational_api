@@ -21,6 +21,12 @@ class SubnationalController extends ControllerBase {
 
   /**
    * api/subnationals/{countryId} end point
+   *
+   * web endpoint called when a user selects a country.
+   *
+   * @return JsonResponse subnational
+   *
+   * Json response of sub-national levels
    */
   public function getSubnationalLevel(Request $request) {
     $country = $request->attributes->get('countryId');

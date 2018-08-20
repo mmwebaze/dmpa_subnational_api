@@ -24,8 +24,14 @@ class SubnationalManager implements SubnationalManagerInterface {
     $this->database = $database;
   }
 
-  public function getSubnationals($country) {
+  /**
+   * @inheritdoc
+   */
+  public function getSubnationals($countryId) {
 
+    // get the taxonomy term id associated with the country selected. Avoided the
+    //use of entitytype_manager service for performance reasons and read directly
+    //from the database
     $query = $this->database->select('taxonomy_term_field_data', 'd');
     $query->innerJoin('taxonomy_term_hierarchy', 'h', 'h.tid = d.tid');
     $query->innerJoin('taxonomy_term__field_country', 'c', 'c.entity_id = d.tid');
@@ -34,7 +40,7 @@ class SubnationalManager implements SubnationalManagerInterface {
       ->fields('c', ['field_country_target_id']);
 
     $query->condition('d.vid', 'subnational_level')
-      ->condition('c.field_country_target_id', $country);
+      ->condition('c.field_country_target_id', $countryId);
 
     $results = $query->execute()->fetchAll();
 
